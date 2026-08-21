@@ -21,10 +21,12 @@ public class ExampleMechanism {
 
     public void setState (ExampleState state) {
         currentState = state;
+
     }
 
     public ExampleState getState() {
         return currentState;
+
     }
 
     public void update() {

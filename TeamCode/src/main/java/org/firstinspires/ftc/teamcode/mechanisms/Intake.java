@@ -21,6 +21,7 @@ public class Intake {
 
     public void setState (IntakeState state) {
         currentState = state;
+
     }
 
     public IntakeState getState() {
