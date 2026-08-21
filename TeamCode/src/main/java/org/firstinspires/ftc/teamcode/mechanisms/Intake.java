@@ -1,5 +1,8 @@
 package org.firstinspires.ftc.teamcode.mechanisms;
 
+import static org.firstinspires.ftc.teamcode.robot.Config.INTAKE_POWER;
+import static org.firstinspires.ftc.teamcode.robot.Config.OUTTAKE_POWER;
+
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 
 //state machines are life.
@@ -35,11 +38,11 @@ public class Intake {
                 break;
 
             case INTAKE:
-                intake.setPower(1);
+                intake.setPower(INTAKE_POWER);
                 break;
 
             case OUTTAKE:
-                intake.setPower(-1);
+                intake.setPower(OUTTAKE_POWER);
                 break;
 
         }
