@@ -3,7 +3,7 @@ package org.firstinspires.ftc.teamcode.mechanisms;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 
 //state machines are life.
-public class ExampleMechanism {
+public class ExampleMechanismStateMachine {
     private DcMotorEx example;
 
     public enum ExampleState {
@@ -14,7 +14,7 @@ public class ExampleMechanism {
 
     private ExampleState currentState = ExampleState.IDLE;
 
-    public ExampleMechanism(DcMotorEx example) {
+    public ExampleMechanismStateMachine(DcMotorEx example) {
         this.example = example;
         this.example.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
     }
