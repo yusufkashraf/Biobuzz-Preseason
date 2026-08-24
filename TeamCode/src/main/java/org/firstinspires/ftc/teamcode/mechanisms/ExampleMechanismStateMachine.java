@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.hardware.DcMotorEx;
 
 //state machines are life.
 public class ExampleMechanismStateMachine {
-    private DcMotorEx example;
+    private DcMotorEx exampleMotor;
 
     public enum ExampleState {
         IDLE,
@@ -14,9 +14,9 @@ public class ExampleMechanismStateMachine {
 
     private ExampleState currentState = ExampleState.IDLE;
 
-    public ExampleMechanismStateMachine(DcMotorEx example) {
-        this.example = example;
-        this.example.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
+    public ExampleMechanismStateMachine(DcMotorEx exampleMotor) {
+        this.exampleMotor = exampleMotor;
+        this.exampleMotor.setMode(DcMotorEx.RunMode.RUN_USING_ENCODER);
     }
 
     public void setState (ExampleState state) {
@@ -32,15 +32,15 @@ public class ExampleMechanismStateMachine {
     public void update() {
         switch (currentState) {
             case IDLE:
-                example.setPower(0);
+                exampleMotor.setPower(0);
                 break;
 
             case INTAKE:
-                example.setPower(1);
+                exampleMotor.setPower(1);
                 break;
 
             case OUTTAKE:
-                example.setPower(-1);
+                exampleMotor.setPower(-1);
                 break;
 
         }
