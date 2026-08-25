@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.robot.Robot;
 import org.firstinspires.ftc.teamcode.mechanisms.Intake;
 
-@TeleOp(name = "Competition TeleOp")
+@TeleOp
 public class TeleOperation extends LinearOpMode {
 
     @Override
