@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.robot.Robot;
 
-@Autonomous(name = "Drive Test")
+@Autonomous
 public class DriveTest extends LinearOpMode {
 
     @Override

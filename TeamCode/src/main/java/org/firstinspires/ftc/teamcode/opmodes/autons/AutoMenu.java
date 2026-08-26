@@ -33,7 +33,7 @@ public class AutoMenu extends LinearOpMode {
             return;
         }
 
-        sleep(selector.delay); //be careful -when adding more options and stuff, know whether it goes before or after this
+        sleep(selector.delay); //be careful when adding more options and stuff, know whether it goes before or after this
 
         if (selector.alliance == AutoSelector.Alliance.RED) {
             runRedAuto();

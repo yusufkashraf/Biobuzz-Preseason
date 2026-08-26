@@ -9,21 +9,17 @@ import com.qualcomm.robotcore.hardware.IMU;
 
 public class Hardware {
 
-    // Drivetrain
     public DcMotorEx frontRightMotor;
     public DcMotorEx frontLeftMotor;
     public DcMotorEx backRightMotor;
     public DcMotorEx backLeftMotor;
 
-    // Mechanisms
     public DcMotorEx intake;
 
-    // IMU
     public IMU imu;
 
     public void init(HardwareMap hardwareMap) {
 
-        // Motors
         frontRightMotor = hardwareMap.get(DcMotorEx.class, "frontRightMotor");
         frontLeftMotor = hardwareMap.get(DcMotorEx.class, "frontLeftMotor");
         backRightMotor = hardwareMap.get(DcMotorEx.class, "backRightMotor");
@@ -42,7 +38,6 @@ public class Hardware {
         imu.initialize(parameters);
 
 
-        // Motor directions
         frontLeftMotor.setDirection(DcMotorSimple.Direction.FORWARD);
         backLeftMotor.setDirection(DcMotorSimple.Direction.FORWARD);
         frontRightMotor.setDirection(DcMotorSimple.Direction.FORWARD);
@@ -50,13 +45,11 @@ public class Hardware {
 
         intake.setDirection(DcMotorSimple.Direction.FORWARD);
 
-        // Zero power behavior
         frontLeftMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         frontRightMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         backRightMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         backLeftMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
-        // Run modes
         frontLeftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         frontRightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         backLeftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);

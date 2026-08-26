@@ -19,11 +19,7 @@ public class TeleOperation extends LinearOpMode {
         while (opModeIsActive()) {
 
             // Drivetrain
-            robot.drivetrain.drive(
-                    gamepad1.left_stick_x,
-                    -gamepad1.left_stick_y,
-                    gamepad1.right_stick_x
-            );
+            robot.drivetrain.drive(gamepad1.left_stick_x, -gamepad1.left_stick_y, gamepad1.right_stick_x);
 
             // Intake
             if (gamepad1.a) {
