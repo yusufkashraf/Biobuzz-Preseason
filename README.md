@@ -21,6 +21,6 @@ Sensors:
 - IMU
 
 Vision:
-- Limelight (planned)
+- Limelight 
 
 ... and more to come!
