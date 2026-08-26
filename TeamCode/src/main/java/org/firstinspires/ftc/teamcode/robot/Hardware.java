@@ -1,5 +1,6 @@
 package org.firstinspires.ftc.teamcode.robot;
 
+import com.qualcomm.hardware.limelightvision.Limelight3A;
 import com.qualcomm.hardware.rev.RevHubOrientationOnRobot;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
@@ -18,25 +19,14 @@ public class Hardware {
 
     public IMU imu;
 
+    public Limelight3A limelight;
+
     public void init(HardwareMap hardwareMap) {
 
         frontRightMotor = hardwareMap.get(DcMotorEx.class, "frontRightMotor");
         frontLeftMotor = hardwareMap.get(DcMotorEx.class, "frontLeftMotor");
         backRightMotor = hardwareMap.get(DcMotorEx.class, "backRightMotor");
         backLeftMotor = hardwareMap.get(DcMotorEx.class, "backLeftMotor");
-
-        intake = hardwareMap.get(DcMotorEx.class, "intake");
-
-        imu = hardwareMap.get(IMU.class, "imu");
-
-        IMU.Parameters parameters = new IMU.Parameters(
-                new RevHubOrientationOnRobot(
-                        RevHubOrientationOnRobot.LogoFacingDirection.LEFT,
-                        RevHubOrientationOnRobot.UsbFacingDirection.UP
-                )
-        );
-        imu.initialize(parameters);
-
 
         frontLeftMotor.setDirection(DcMotorSimple.Direction.FORWARD);
         backLeftMotor.setDirection(DcMotorSimple.Direction.FORWARD);
@@ -54,5 +44,20 @@ public class Hardware {
         frontRightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         backLeftMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         backRightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+
+        intake = hardwareMap.get(DcMotorEx.class, "intake");
+
+        imu = hardwareMap.get(IMU.class, "imu");
+
+        IMU.Parameters parameters = new IMU.Parameters(
+                new RevHubOrientationOnRobot(
+                        RevHubOrientationOnRobot.LogoFacingDirection.LEFT,
+                        RevHubOrientationOnRobot.UsbFacingDirection.UP
+                )
+        );
+        imu.initialize(parameters);
+
+        limelight = hardwareMap.get(Limelight3A.class, "limelight");
+
     }
 }
