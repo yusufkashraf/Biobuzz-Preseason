@@ -7,41 +7,41 @@ import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 
 public class Drivetrain {
 
-    private final DcMotorEx frontLeft;
-    private final DcMotorEx frontRight;
-    private final DcMotorEx backLeft;
-    private final DcMotorEx backRight;
+    private final DcMotorEx frontLeftMotor;
+    private final DcMotorEx frontRightMotor;
+    private final DcMotorEx backLeftMotor;
+    private final DcMotorEx backRightMotor;
     private final IMU imu;
 
-    public Drivetrain(DcMotorEx frontLeft, DcMotorEx frontRight, DcMotorEx backLeft, DcMotorEx backRight, IMU imu) {
-        this.frontLeft = frontLeft;
-        this.frontRight = frontRight;
-        this.backLeft = backLeft;
-        this.backRight = backRight;
+    public Drivetrain(DcMotorEx frontLeftMotor, DcMotorEx frontRightMotor, DcMotorEx backLeftMotor, DcMotorEx backRightMotor, IMU imu) {
+        this.frontLeftMotor = frontLeftMotor;
+        this.frontRightMotor = frontRightMotor;
+        this.backLeftMotor = backLeftMotor;
+        this.backRightMotor = backRightMotor;
         this.imu = imu;
     }
 
-    public void robotCentricDrive(double x, double y, double rotation) {
+    public void robotCentricDrive(double strafe, double forward, double rotation) {
 
-        x *= 1.1;
+        strafe *= 1.1;
 
-        double denominator = Math.max(Math.abs(y) + Math.abs(x) + Math.abs(rotation), 1);
-        double frontLeftPower = (y + x + rotation) / denominator;
-        double backLeftPower = (y - x + rotation) / denominator;
-        double frontRightPower = (y - x - rotation) / denominator;
-        double backRightPower = (y + x - rotation) / denominator;
+        double denominator = Math.max(Math.abs(forward) + Math.abs(strafe) + Math.abs(rotation), 1);
+        double frontLeftPower = (forward + strafe + rotation) / denominator;
+        double backLeftPower = (forward - strafe + rotation) / denominator;
+        double frontRightPower = (forward - strafe - rotation) / denominator;
+        double backRightPower = (forward + strafe - rotation) / denominator;
 
-        frontLeft.setPower(frontLeftPower);
-        backLeft.setPower(backLeftPower);
-        frontRight.setPower(frontRightPower);
-        backRight.setPower(backRightPower);
+        frontLeftMotor.setPower(frontLeftPower);
+        backLeftMotor.setPower(backLeftPower);
+        frontRightMotor.setPower(frontRightPower);
+        backRightMotor.setPower(backRightPower);
     }
 
-    public void fieldCentricDrive(double x, double y, double rotation) {
+    public void fieldCentricDrive(double strafe, double forward, double rotation) {
 
         double heading = imu.getRobotYawPitchRollAngles().getYaw(AngleUnit.RADIANS);
-        double rotatedX = x * Math.cos(-heading) - y * Math.sin(-heading);
-        double rotatedY = x * Math.sin(-heading) + y * Math.cos(-heading);
+        double rotatedX = strafe * Math.cos(-heading) - forward * Math.sin(-heading);
+        double rotatedY = strafe * Math.sin(-heading) + forward * Math.cos(-heading);
 
         robotCentricDrive(rotatedX, rotatedY, rotation);
     }
