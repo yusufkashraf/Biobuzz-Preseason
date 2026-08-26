@@ -21,12 +21,12 @@ public class DriveTest extends LinearOpMode {
 
         // (we should definitely NOT use this for actual autons - we should use pedro - but this is just for testing)
         // this is an example of how we can incorporate hardware classes into opmodes
-        robot.drivetrain.drive(0, 0.5, 0);
+        robot.drivetrain.robotCentricDrive(0, 0.5, 0);
         sleep(2000);
-        robot.drivetrain.drive(0, 0, 0);
+        robot.drivetrain.robotCentricDrive(0, 0, 0);
         sleep(500);
-        robot.drivetrain.drive(0.5, 0, 0);
+        robot.drivetrain.robotCentricDrive(0.5, 0, 0);
         sleep(2000);
-        robot.drivetrain.drive(0, 0, 0);
+        robot.drivetrain.robotCentricDrive(0, 0, 0);
     }
 }
