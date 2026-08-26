@@ -8,8 +8,8 @@ public class ExampleMechanismStateMachine {
 
     public enum ExampleState {
         IDLE,
-        INTAKE,
-        OUTTAKE
+        SOMETHING1,
+        SOMETHING2
     }
 
     private ExampleState currentState = ExampleState.IDLE;
@@ -35,11 +35,11 @@ public class ExampleMechanismStateMachine {
                 exampleMotor.setPower(0);
                 break;
 
-            case INTAKE:
+            case SOMETHING1:
                 exampleMotor.setPower(1);
                 break;
 
-            case OUTTAKE:
+            case SOMETHING2:
                 exampleMotor.setPower(-1);
                 break;
 
