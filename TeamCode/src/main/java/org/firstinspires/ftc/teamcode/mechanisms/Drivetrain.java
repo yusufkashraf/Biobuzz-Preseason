@@ -2,33 +2,33 @@ package org.firstinspires.ftc.teamcode.mechanisms;
 
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 
-import org.firstinspires.ftc.teamcode.robot.Hardware;
-
 public class Drivetrain {
 
-    private final Hardware hardware;
+    private final DcMotorEx frontLeft;
+    private final DcMotorEx frontRight;
+    private final DcMotorEx backLeft;
+    private final DcMotorEx backRight;
 
-
-    public Drivetrain(DcMotorEx frontLeft,
-                      DcMotorEx frontRight,
-                      DcMotorEx backLeft,
-                      DcMotorEx backRight) {
-        this.hardware = new Hardware();
-        this.hardware.frontLeftMotor = frontLeft;
-        this.hardware.frontRightMotor = frontRight;
-        this.hardware.backLeftMotor = backLeft;
-        this.hardware.backRightMotor = backRight;
+    public Drivetrain(DcMotorEx frontLeft, DcMotorEx frontRight, DcMotorEx backLeft, DcMotorEx backRight) {
+        this.frontLeft = frontLeft;
+        this.frontRight = frontRight;
+        this.backLeft = backLeft;
+        this.backRight = backRight;
     }
 
     public void drive(double x, double y, double rotation) {
-        double frontLeft = y + x + rotation;
-        double frontRight = y - x - rotation;
-        double backLeft = y - x + rotation;
-        double backRight = y + x - rotation;
 
-        hardware.frontLeftMotor.setPower(frontLeft);
-        hardware.frontRightMotor.setPower(frontRight);
-        hardware.backLeftMotor.setPower(backLeft);
-        hardware.backRightMotor.setPower(backRight);
+        x *= 1.1;
+
+        double denominator = Math.max(Math.abs(y) + Math.abs(x) + Math.abs(rotation), 1);
+        double frontLeftPower = (y + x + rotation) / denominator;
+        double backLeftPower = (y - x + rotation) / denominator;
+        double frontRightPower = (y - x - rotation) / denominator;
+        double backRightPower = (y + x - rotation) / denominator;
+
+        frontLeft.setPower(frontLeftPower);
+        backLeft.setPower(backLeftPower);
+        frontRight.setPower(frontRightPower);
+        backRight.setPower(backRightPower);
     }
 }
