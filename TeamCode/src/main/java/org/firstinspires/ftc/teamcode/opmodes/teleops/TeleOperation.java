@@ -18,10 +18,13 @@ public class TeleOperation extends LinearOpMode {
 
         while (opModeIsActive()) {
 
-            // Drivetrain
-            robot.drivetrain.drive(gamepad1.left_stick_x, -gamepad1.left_stick_y, gamepad1.right_stick_x);
+            /**
+             * free will! we can choose robot or field centric!
+             */
+            //robot.drivetrain.robotCentricDrive(gamepad1.left_stick_x, -gamepad1.left_stick_y, gamepad1.right_stick_x);
+            robot.drivetrain.fieldCentricDrive(gamepad1.left_stick_x, -gamepad1.left_stick_y, gamepad1.right_stick_x);
 
-            // Intake
+
             if (gamepad1.a) {
                 robot.intake.setState(Intake.IntakeState.INTAKE);
             } else if (gamepad1.b) {
@@ -32,7 +35,7 @@ public class TeleOperation extends LinearOpMode {
 
             robot.intake.update();
 
-            // Telemetry
+
             telemetry.addData("Intake", robot.intake.getState());
             telemetry.addData("Heading",
                     robot.hardware.imu.getRobotYawPitchRollAngles().getYaw(

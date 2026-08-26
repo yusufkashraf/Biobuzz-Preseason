@@ -21,7 +21,8 @@ public class Robot {
                 hardware.frontLeftMotor,
                 hardware.frontRightMotor,
                 hardware.backLeftMotor,
-                hardware.backRightMotor
+                hardware.backRightMotor,
+                hardware.imu
         );
         intake = new Intake(hardware.intake);
     }
