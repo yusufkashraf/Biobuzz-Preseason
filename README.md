@@ -21,6 +21,9 @@ Sensors:
 - IMU
 
 Vision:
-- Limelight 
+- Limelight
+
+Other:
+- Sloth! (😭) --- This is on the sloth-integration branch, not this one
 
 ... and more to come!
