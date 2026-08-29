@@ -4,9 +4,9 @@ Attempt at making a modular FTC robot code structure
 
 ## Structure
 
-- subsystems/   Robot mechanisms
-- vision/       Limelight / AprilTags
-- opmodes/      TeleOp, Auto, testing
+- subsystems:   Robot mechanisms
+- vision:       Limelight / AprilTags
+- opmodes:      TeleOp, Auto, testing
 
 ## Current Example Robot
 
