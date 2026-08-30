@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode.mechanisms;
 
+import static org.firstinspires.ftc.teamcode.robot.Config.STRAFE_COMPENSATION;
+
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.IMU;
 
@@ -23,7 +25,7 @@ public class Drivetrain {
 
     public void robotCentricDrive(double strafe, double forward, double rotation) {
 
-        strafe *= 1.1;
+        strafe *= STRAFE_COMPENSATION;
 
         double denominator = Math.max(Math.abs(forward) + Math.abs(strafe) + Math.abs(rotation), 1);
         double frontLeftPower = (forward + strafe + rotation) / denominator;
