@@ -10,6 +10,10 @@ import com.qualcomm.robotcore.hardware.IMU;
 
 public class Hardware {
 
+    /**
+     * handles all hardware used by robot
+     */
+
     public DcMotorEx frontRightMotor;
     public DcMotorEx frontLeftMotor;
     public DcMotorEx backRightMotor;

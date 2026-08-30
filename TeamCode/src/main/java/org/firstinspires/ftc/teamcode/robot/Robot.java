@@ -8,6 +8,9 @@ import org.firstinspires.ftc.teamcode.mechanisms.Intake;
 
 public class Robot {
 
+    /**
+     * represents the whole robot by initializing hardware and "compiling" all the mechanisms together
+     */
     public final Hardware hardware;
 
     public final Drivetrain drivetrain;
