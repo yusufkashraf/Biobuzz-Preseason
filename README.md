@@ -4,9 +4,9 @@ Attempt at making a modular FTC robot code structure
 
 ## Structure
 
-- subsystems/   Robot mechanisms
-- vision/       Limelight / AprilTags
-- opmodes/      TeleOp, Auto, testing
+- subsystems:   Robot mechanisms
+- vision:       Limelight / AprilTags
+- opmodes:      TeleOp, Auto, testing
 
 ## Current Example Robot
 
@@ -21,6 +21,9 @@ Sensors:
 - IMU
 
 Vision:
-- Limelight (planned)
+- Limelight
+
+Other:
+- Sloth! (😭) --- This is on the sloth-integration branch, not this one
 
 ... and more to come!
